@@ -19,8 +19,13 @@ function Home() {
   return (
     <div className="home-page">
       <h1>Star Wars Characters</h1>
-      {characters &&
-        characters.map((c) => <CharacterCard {...c}></CharacterCard>)}
+      {characters ? (
+        characters.map((c) => (
+          <CharacterCard key={c.url} {...c}></CharacterCard>
+        ))
+      ) : (
+        <span>Fetching...</span>
+      )}
     </div>
   );
 }
